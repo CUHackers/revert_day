@@ -2,7 +2,7 @@
 * @Author: Charlie Gallentine
 * @Date:   2019-01-22 13:35:44
 * @Last Modified by:   Charlie Gallentine
-* @Last Modified time: 2019-01-25 11:40:50
+* @Last Modified time: 2019-01-25 11:43:47
 */
 function get_sessions() {
 	const sessions = [
@@ -42,7 +42,7 @@ function get_sessions() {
 	    requirements: "",
 	  },
 	  {
-	    session: "Intro to HTML/CSS/JS Web Dev Basics",
+	    session: "Intro to HTML/CSS/JS<br/>Web Dev Basics",
 	    start: new Date(year, month, day, 13, 15),
 	    end: new Date(year, month, day, 14),
 	    leader: "Ayush Petigara",
