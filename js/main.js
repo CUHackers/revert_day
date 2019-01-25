@@ -4,7 +4,7 @@
 * @Author: Charlie Gallentine
 * @Date:   2018-10-08 11:50:43
 * @Last Modified by:   Charlie Gallentine
-* @Last Modified time: 2019-01-22 14:12:47
+* @Last Modified time: 2019-01-25 11:41:44
 */
 
 // var startTime() = (new Date(year, month, day, eventStartTime, eventStartMinutes)).getTime();
@@ -12,6 +12,9 @@
 let event_count = 0;
 let session_count = 0;
 
+const MAX_DISPLAY = 5;
+
+// These can be found in their respective .js files
 const schedule = get_schedule();
 const sessions = get_sessions();
 
@@ -65,7 +68,7 @@ function set_events(id_str, class_str)
 
   for (var i = 0; i < schedule.length; i++)
   {
-    if ( event_count < 6 &&
+    if ( event_count < MAX_DISPLAY+2 &&
       currentTime() >= schedule[i].start 
       && currentTime() <= schedule[i].end)
     {
@@ -99,7 +102,7 @@ function set_upcoming(id_str, class_str)
 
   for (var i = 0; i < schedule.length; i++)
   {
-    if ( event_count < 6 &&
+    if ( event_count < MAX_DISPLAY+2 &&
       // If an event is less than an hour away, update screen
       (schedule[i].start - currentTime()) / 3600000 < 1000
       && schedule[i].start - currentTime() > 0) 
@@ -135,18 +138,18 @@ function set_sessions(id_str, class_str)
 
   for (var i = 0; i < sessions.length; i++)
   {
-    if ( session_count < 6 &&
+    if ( session_count < MAX_DISPLAY &&
       currentTime() >= sessions[i].start 
       && currentTime() <= sessions[i].end)
     {
       html_string += 
       `<div class="${class_str}"> \
-        <div style="display:inline-block;width:20px;">
+        <div style="display:inline-block;">
           <h1 style="display:block;" class="session_title"><strong>${sessions[i].session}</strong></h1> \
           <h3 style="display:block;" class="session_leader">${sessions[i].leader}</h3> \
+          <p style="display:inline-block;margin-left:30px;" class="session_reqs">${sessions[i].requirements == "" ? "" : "Reqs: " } ${sessions[i].requirements}</p>\
         </div>
         <div>
-          <p style="display:inline;" class="session_reqs">${sessions[i].requirements}</p>
           <p style="display:inline;" class="event_time">${(
             sessions[i].start.getHours() > 12 ? sessions[i].start.getHours()%12 : 
             sessions[i].start.getHours() < 1 ? sessions[i].start.getHours()+12 : 
@@ -177,7 +180,7 @@ function set_upcoming_sessions(id_str, class_str)
 
   for (var i = 0; i < sessions.length; i++)
   {
-    if ( session_count < 6 &&
+    if ( session_count < MAX_DISPLAY &&
       // If an event is less than an hour away, update screen
       (sessions[i].start - currentTime()) / 3600000 < 1000
       && sessions[i].start - currentTime() > 0) 
@@ -187,9 +190,9 @@ function set_upcoming_sessions(id_str, class_str)
         <div style="display:inline-block;">
           <h1 style="display:block;" class="session_title"><strong>${sessions[i].session}</strong></h1> \
           <h3 style="display:block;" class="session_leader">${sessions[i].leader}</h3> \
+          <p style="display:inline-block;margin-left:30px;" class="session_reqs">${sessions[i].requirements == "" ? "" : "Reqs: " } ${sessions[i].requirements}</p>\
         </div>
         <div style="display:inline-block;text-align:right;">
-          <p style="display:inline-block;" class="session_reqs">${sessions[i].requirements}</p>
           <p style="display:inline-block;" class="event_time">${(
             sessions[i].start.getHours() > 12 ? sessions[i].start.getHours()%12 : 
             sessions[i].start.getHours() < 1 ? sessions[i].start.getHours()+12 : 

@@ -2,19 +2,22 @@
 * @Author: Charlie Gallentine
 * @Date:   2018-10-05 15:34:33
 * @Last Modified by:   Charlie Gallentine
-* @Last Modified time: 2019-01-22 14:06:57
+* @Last Modified time: 2019-01-25 11:37:05
 */
 
+/* Below allow for constant repetition for demo purposes*/
 // const year = new Date().getYear() + 1900;
 // const month = new Date().getMonth();
 // const day = new Date().getDate();
 // const endDay = new Date().getDate()+1;
 
+/* Below sets the actual event */
 const year = 2019;
 const month = 0;
 const day = 26;
 const endDay = 27;
 
+/* Below sets individual testing date range*/
 // const year = 2019;
 // const month = 0;
 // const day = 21;

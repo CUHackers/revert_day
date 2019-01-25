@@ -2,7 +2,7 @@
 * @Author: Charlie Gallentine
 * @Date:   2019-01-22 13:35:44
 * @Last Modified by:   Charlie Gallentine
-* @Last Modified time: 2019-01-22 13:59:15
+* @Last Modified time: 2019-01-25 11:40:50
 */
 function get_sessions() {
 	const sessions = [
@@ -35,7 +35,7 @@ function get_sessions() {
 	    requirements: "Adobe XD/Sketch",
 	  },
 	  {
-	    session: "Intro to Git (Software Version Control)",
+	    session: "Intro to Git<br/>(Software Version Control)",
 	    start: new Date(year, month, day, 12, 15),
 	    end: new Date(year, month, day, 13),
 	    leader: "Audrey Vincent",
